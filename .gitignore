@@ -12,7 +12,6 @@ venv/
 
 # Environment
 .env
-.env.*
 
 # Logs
 logs/
