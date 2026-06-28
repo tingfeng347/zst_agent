@@ -1,0 +1,432 @@
+// 全局样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// ========== CSS 变量定义 ==========
+:root {
+  // 主色调
+  --el-color-primary: #409EFF;
+  
+  // 背景色
+  --bg-color: #f5f7fa;
+  --bg-color-page: #f5f7fa;
+  --bg-color-container: #ffffff;
+  --bg-color-overlay: #ffffff;
+  --bg-color-muted: #f4f4f5;
+  
+  // 文字颜色
+  --text-color-primary: #303133;
+  --text-color-regular: #606266;
+  --text-color-secondary: #909399;
+  --text-color-placeholder: #c0c4cc;
+  
+  // 边框颜色
+  --border-color: #e4e7ed;
+  --border-color-light: #ebeef5;
+  
+  // 阴影
+  --box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.05);
+  --box-shadow-light: 0 1px 2px rgba(0, 0, 0, 0.08);
+  
+  // 侧边栏
+  --aside-bg: #304156;
+  --aside-text: #bfcbd9;
+  --aside-border: rgba(255, 255, 255, 0.1);
+  
+  // 滚动条
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #c1c1c1;
+  --scrollbar-thumb-hover: #a8a8a8;
+  
+  // 聊天
+  --chat-bg-user: #409EFF;
+  --chat-bg-assistant: #f4f4f5;
+  --chat-text-user: #ffffff;
+  --chat-text-assistant: #303133;
+  --user-avatar-bg: #4f7cff;
+  
+  // 标签页
+  --tab-bg: #ffffff;
+  --tab-bg-active: #f0f0f0;
+  --tab-text: #5c5c5c;
+}
+
+// ========== 暗黑模式 ==========
+html.dark {
+  // 背景色 - 深色系
+  --bg-color: #1a1a2e;
+  --bg-color-page: #16213e;
+  --bg-color-container: #1f2937;
+  --bg-color-overlay: #252d3a;
+  --bg-color-muted: #374151;
+  
+  // 文字颜色 - 亮色
+  --text-color-primary: #e5e7eb;
+  --text-color-regular: #d1d5db;
+  --text-color-secondary: #9ca3af;
+  --text-color-placeholder: #6b7280;
+  
+  // 边框颜色
+  --border-color: #374151;
+  --border-color-light: #4b5563;
+  
+  // 阴影
+  --box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.3);
+  --box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+  // 侧边栏
+  --aside-bg: #111827;
+  --aside-text: #d1d5db;
+  --aside-border: rgba(255, 255, 255, 0.05);
+  
+  // 滚动条
+  --scrollbar-track: #374151;
+  --scrollbar-thumb: #4b5563;
+  --scrollbar-thumb-hover: #6b7280;
+  
+  // 聊天
+  --chat-bg-user: #3b82f6;
+  --chat-bg-assistant: #374151;
+  --chat-text-user: #ffffff;
+  --chat-text-assistant: #e5e7eb;
+  --user-avatar-bg: #2563eb;
+  
+  // 标签页
+  --tab-bg: #1f2937;
+  --tab-bg-active: #374151;
+  --tab-text: #d1d5db;
+  
+  // Element Plus 暗黑模式覆盖
+  --el-bg-color: #1f2937;
+  --el-bg-color-page: #16213e;
+  --el-bg-color-overlay: #252d3a;
+  --el-text-color-primary: #e5e7eb;
+  --el-text-color-regular: #d1d5db;
+  --el-text-color-secondary: #9ca3af;
+  --el-text-color-placeholder: #6b7280;
+  --el-border-color: #374151;
+  --el-border-color-light: #4b5563;
+  --el-fill-color: #374151;
+  --el-fill-color-light: #4b5563;
+  --el-fill-color-blank: #1f2937;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  font-size: 14px;
+  color: var(--text-color-primary);
+  background-color: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+
+  &:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+}
+
+// Element Plus 覆盖
+.el-menu {
+  border-right: none !important;
+}
+
+// 暗黑模式下的 Element Plus 组件样式
+html.dark {
+  .el-card {
+    --el-card-bg-color: var(--bg-color-container);
+    background-color: var(--bg-color-container);
+    border-color: var(--border-color);
+  }
+  
+  .el-dialog {
+    --el-dialog-bg-color: var(--bg-color-container);
+    background-color: var(--bg-color-container);
+  }
+  
+  .el-input__wrapper {
+    background-color: var(--bg-color-muted);
+    box-shadow: 0 0 0 1px var(--border-color) inset;
+  }
+  
+  .el-textarea__inner {
+    background-color: var(--bg-color-muted);
+    box-shadow: 0 0 0 1px var(--border-color) inset;
+    color: var(--text-color-primary);
+  }
+  
+  .el-button--default {
+    --el-button-bg-color: var(--bg-color-muted);
+    --el-button-border-color: var(--border-color);
+    --el-button-text-color: var(--text-color-primary);
+  }
+  
+  .el-dropdown-menu {
+    background-color: var(--bg-color-container);
+    border-color: var(--border-color);
+  }
+  
+  .el-dropdown-menu__item {
+    color: var(--text-color-regular);
+    
+    &:hover {
+      background-color: var(--bg-color-muted);
+    }
+  }
+  
+  .el-table {
+    --el-table-bg-color: var(--bg-color-container);
+    --el-table-tr-bg-color: var(--bg-color-container);
+    --el-table-header-bg-color: var(--bg-color-muted);
+    --el-table-row-hover-bg-color: var(--bg-color-muted);
+    --el-table-border-color: var(--border-color);
+    --el-table-text-color: var(--text-color-primary);
+    background-color: var(--bg-color-container);
+  }
+
+  .el-table__header-wrapper th {
+    background-color: var(--bg-color-muted) !important;
+    color: var(--text-color-primary);
+  }
+
+  .el-table__body tr.el-table__row--striped td {
+    background-color: var(--bg-color-muted) !important;
+  }
+
+  .el-table__body tr:hover > td {
+    background-color: var(--bg-color-muted) !important;
+  }
+  
+  .el-tag {
+    --el-tag-bg-color: var(--bg-color-muted);
+    --el-tag-border-color: var(--border-color);
+    --el-tag-text-color: var(--text-color-regular);
+  }
+  
+  .el-empty__description {
+    color: var(--text-color-secondary);
+  }
+  
+  .el-collapse {
+    --el-collapse-header-bg-color: var(--bg-color-muted);
+    --el-collapse-content-bg-color: var(--bg-color-container);
+    border-color: var(--border-color);
+  }
+  
+  .el-collapse-item__header {
+    background-color: var(--bg-color-muted);
+    color: var(--text-color-primary);
+    border-color: var(--border-color);
+  }
+  
+  .el-collapse-item__content {
+    background-color: var(--bg-color-container);
+    color: var(--text-color-regular);
+  }
+  
+  .el-breadcrumb__inner {
+    color: var(--text-color-secondary);
+  }
+  
+  .el-breadcrumb__separator {
+    color: var(--text-color-placeholder);
+  }
+  
+  .el-avatar {
+    --el-avatar-bg-color: var(--bg-color-muted);
+  }
+  
+  .el-message-box {
+    --el-messagebox-bg-color: var(--bg-color-container);
+    background-color: var(--bg-color-container);
+  }
+  
+  .el-message {
+    --el-message-bg-color: var(--bg-color-container);
+  }
+  
+  // Tabs 标签页
+  .el-tabs {
+    --el-tabs-header-bg-color: var(--bg-color-container);
+    
+    .el-tabs__header {
+      border-color: var(--border-color);
+    }
+    
+    .el-tabs__item {
+      color: var(--text-color-regular);
+      
+      &:hover {
+        color: var(--el-color-primary);
+      }
+      
+      &.is-active {
+        color: var(--el-color-primary);
+      }
+    }
+    
+    .el-tabs__nav-wrap::after {
+      background-color: var(--border-color);
+    }
+  }
+  
+  // Form 表单
+  .el-form-item__label {
+    color: var(--text-color-regular);
+  }
+  
+  .el-form-item__error {
+    color: #f56c6c;
+  }
+  
+  // Select 选择器
+  .el-select__wrapper {
+    background-color: var(--bg-color-muted);
+    box-shadow: 0 0 0 1px var(--border-color) inset;
+  }
+  
+  .el-select-dropdown {
+    background-color: var(--bg-color-container);
+    border-color: var(--border-color);
+  }
+  
+  .el-select-dropdown__item {
+    color: var(--text-color-regular);
+    
+    &:hover {
+      background-color: var(--bg-color-muted);
+    }
+    
+    &.is-selected {
+      color: var(--el-color-primary);
+    }
+  }
+  
+  // Menu 子菜单（弹出层）
+  .el-menu--popup {
+    background-color: #111827 !important;
+    
+    .el-menu-item {
+      background-color: transparent;
+      color: #d1d5db;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+      
+      &.is-active {
+        color: #409EFF;
+      }
+    }
+  }
+  
+  // Divider 分割线
+  .el-divider {
+    border-color: var(--border-color);
+  }
+  
+  .el-divider__text {
+    background-color: var(--bg-color-container);
+    color: var(--text-color-secondary);
+  }
+  
+  // Checkbox 复选框
+  .el-checkbox__label {
+    color: var(--text-color-regular);
+  }
+  
+  // Link 链接
+  .el-link--default {
+    color: var(--text-color-regular);
+    
+    &:hover {
+      color: var(--el-color-primary);
+    }
+  }
+  
+  // Tooltip
+  .el-tooltip__trigger {
+    color: var(--text-color-regular);
+  }
+  
+  // Pagination 分页
+  .el-pagination {
+    --el-pagination-bg-color: var(--bg-color-muted);
+    --el-pagination-text-color: var(--text-color-regular);
+    --el-pagination-button-disabled-bg-color: var(--bg-color-container);
+  }
+}
+
+// 自定义类
+.page-container {
+  padding: 20px;
+  background: var(--bg-color-page);
+  min-height: calc(100vh - 60px);
+}
+
+.card-box {
+  background: var(--bg-color-container);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+// 渐变背景
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-blue {
+  background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
+}
+
+// 过渡动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+// 主题切换过渡
+html, body, 
+.main-layout, .layout-aside, .layout-header, .layout-main,
+.chat-page, .chat-sidebar, .chat-main,
+.el-card, .el-input__wrapper, .el-button {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

@@ -1,0 +1,3 @@
+rag_summarize_prompt_path: prompts/rag_summarize.txt
+main_prompt_path: prompts/main_prompt.txt
+report_prompt_path: prompts/chat_prompt.txt
