@@ -74,7 +74,7 @@
 ## 项目结构
 
 ```
-zst_agent-master/
+zst_agent/
 ├── agent/                      # Agent 模块
 │   ├── react_agent.py         # ReAct Agent
 │   ├── mcp/                   # MCP 工具集成
